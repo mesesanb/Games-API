@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Games API_Homework</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<style>
+    .card-text {
+        overflow-y: auto;
+        /* textul sa apara cu scrollbar */
+        height: 4em;
+
+    }
+
+
+
+    #topButtons{ 
+        /* butoanele add new game si regenerate new database */
+        position: fixed;
+        z-index: 10;
+
+    }
+
+    .form-hidden {
+        /* formularul de joc nou*/
+        display: none;
+        /* position: fixed; */
+        top: 0;
+        left: 15px;
+        border: 3px solid #f1f1f1;
+        z-index: 2;
+        background-color: blanchedalmond;
+    }
+
+    .form-visible {
+        /* formularul de joc nou*/
+        display: block;
+        /* position: fixed; */
+        top: 0;
+        left: 15px;
+        border: 3px solid #f1f1f1;
+        z-index: 2;
+        background-color: blanchedalmond;
+    }
+
+    .card-img-top {
+        /*imaginile sunt fortate sa aiba aceeasi marime  */
+        width: 100%;
+        height: 30vw;
+        object-fit: cover;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <!-- butonul pentru add new game -->
+        <nav class=" row navbar navbar-light bg-light">
+            <form class="form-group" id="newGame">
+                <div id="topButtons">
+                    <button id="addGameButton" class="btn btn-sm btn-info addButton" type="button" value="addGame">Add
+                        New Game</button>
+                    <button id="regenDB" class="btn btn-sm btn-danger regenDBButton" type="button"
+                        onclick="window.open('https://games-world.herokuapp.com/regenerate-games')">New Games DB</button>
+                </div>
+                <div id="newGameForm" class="form-group form-hidden">
+                    
+                    <label for="gameTitle">Game Title</label>
+                    <input type="text" class="form-control" id="gameTitle" placeholder="insert game title">
+                    <label for="releaseDate">Release Date</label>
+                    <input type="text" class="form-control" id="releaseDate" placeholder="insert release date">
+                    <label for="gameGenre">Game Genre</label>
+                    <input type="text" class="form-control" id="gameGenre" placeholder="insert genre">
+                    <label for="gamePublisher">Game Publisher</label>
+                    <input type="text" class="form-control" id="gamePublisher" placeholder="insert publisher">
+
+                    <label for="gameDescription">Game Description</label><br>
+                    <textarea rows="4" cols="50" class="form-control" id="gameDescription" form="newGame"
+                        placeholder="Add game description"></textarea>
+                    <br><label for="gameImgLink">Game Image link</label>
+                    <input type="text" class="form-control" id="gameImgLink" placeholder="insert image link">
+                    <br><button type="button" id="submitButton" class="btn btn-success">Submit</button>
+                    <button type="button" id="cancelButton" class="btn btn-danger ">Close</button>
+
+                </div>
+
+
+                
+            </form>
+        </nav>
+        <!-- div-ul in care punem cardurile cu jocuri -->
+        <div class="row" id="gameCard">
+        </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
